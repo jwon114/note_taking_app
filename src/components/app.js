@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { buttonPress } from '../actions/index';
+import ToDoList from './ToDoList/ToDoList';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
         <h1>{reduxState.message}</h1>
         <input value={this.state.inputValue} onChange={(e) => this.setState({ inputValue: e.target.value })} />
         <button onClick={() => dispatch(buttonPress(this.state.inputValue))}>Button</button>
+        <ToDoList name={'First list'} list={[1, 2, 3]} />
       </div>
     );
   }
