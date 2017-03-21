@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       currentToDo: '',
-      listToDos: [{ 0: 'A' }, { 1: 'B' }, { 2: 'C' }],
+      listToDos: [{ title: 'A', value: 'One' }, { title: 'B', value: 'Two' }, { title: 'C', value: 'Three' }],
+      showToDo: '',
     };
   }
 
