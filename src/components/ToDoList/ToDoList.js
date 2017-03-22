@@ -4,9 +4,9 @@ const ToDoList = (props) => (
   <div>
     {props.name}
     {props.list.map((value) => (
-      <div onClick={props.click}>
+      <li onClick={() => props.clickToDo(value)}>
         {value.title}
-      </div>)
+      </li>)
     )}
   </div>
 );
@@ -14,7 +14,7 @@ const ToDoList = (props) => (
 ToDoList.propTypes = {
   name: PropTypes.string,
   list: PropTypes.array,
-  click: PropTypes.func,
+  clickToDo: PropTypes.func,
 };
 
 export default ToDoList;
