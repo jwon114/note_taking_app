@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import messageReducer from './app.js';
+import toDoReducer from './app.js';
 
 const rootReducer = combineReducers({
-  messageReducer,
+  toDoReducer,
 });
 
 export default rootReducer;

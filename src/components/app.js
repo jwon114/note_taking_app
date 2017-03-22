@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { buttonPress } from '../actions/index';
+import addToDo from '../actions/index';
 import ToDoList from './ToDoList/ToDoList';
 import Style from '../../style/style.css';
 import ToDo from './ToDo/ToDo';
@@ -22,6 +22,9 @@ class App extends Component {
     return (
       <div>
         {console.log(this.state)}
+        <div>
+          <button onClick={() => dispatch(this.setState({ listToDos})}>New ToDo</button>
+        </div>
         <div className={Style.container}>
           <div className={Style.toDos}>
             <ToDoList name={'First list'} list={listToDos} clickToDo={(toDo) => this.setState({ showToDo: toDo })} />
@@ -29,10 +32,6 @@ class App extends Component {
           <div className={Style.listToDos}>
             {showToDo ? <ToDo item={showToDo} /> : null}
           </div>
-        </div>
-        <div>
-          <input value={this.state.inputValue} onChange={(e) => this.setState({ inputValue: e.target.value })} />
-          <button onClick={() => dispatch(buttonPress(this.state.inputValue))}>New ToDo</button>
         </div>
       </div>
     );

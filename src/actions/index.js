@@ -1,4 +1,4 @@
 export const buttonPress = (text) => ({
-  type: 'BUTTON_PRESS',
+  type: 'ADD_TODO',
   payload: text,
 });

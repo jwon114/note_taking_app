@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'BUTTON_PRESS':
+    case 'ADD_TODO':
       return { ...state, message: action.payload };
     default: return state;
   }
