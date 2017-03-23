@@ -4,7 +4,8 @@ import addToDo from '../actions/index';
 import ToDoList from './ToDoList/ToDoList';
 import Style from '../../style/style.css';
 import ToDo from './ToDo/ToDo';
-import Modal from 'react-bootstrap';
+import InputModal from './InputModal/InputModal';
+//import { Modal } from 'react-bootstrap';
 
 class App extends Component {
 
@@ -18,6 +19,10 @@ class App extends Component {
     };
   }
 
+  closeModal() {
+    this.setState({ showModal: false });
+  }
+
   render() {
     const { reduxState, dispatch } = this.props;
     const { listToDos, showToDo, showModal } = this.state;
@@ -25,14 +30,8 @@ class App extends Component {
       <div>
         {console.log(this.state)}
         <div>
-          <button onClick={() => this.setState({ showPopUp: true })}>New ToDo</button>
-        </div>
-        <div>
-          <Modal show={showModal} onHide={this.setState({ showModal: false })}>
-            <Modal.Header closeButton>
-              <Modal.Title>Modal Heading</Modal.Title>
-            </Modal.Header>
-          </Modal>
+          <button onClick={() => this.setState({ showModal: true })}>New ToDo</button>
+          <InputModal show={showModal} hide={() => this.closeModal()} />
         </div>
         <div className={Style.container}>
           <div className={Style.toDos}>
