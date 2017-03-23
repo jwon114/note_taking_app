@@ -9,11 +9,15 @@ const InputModal = (props) => (
       </Modal.Header>
       <Modal.Body>
         <input />
+        <div className="input-group">
+          <span className="input-group-addon" id="basic-addon1">@</span>
+          <input type="text" className="form-control" placeholder="Username" aria-describedby="basic-addon1" />
+        </div>
       </Modal.Body>
       <Modal.Footer>
-        <button onClick={() => props.hide()}>Close</button>
-        <button>Submit</button>
-        <button>Clear</button>
+        <button className="btn btn-default" onClick={() => props.hide()}>Close</button>
+        <button className="btn btn-default">Submit</button>
+        <button className="btn btn-default">Clear</button>
       </Modal.Footer>
     </Modal>
   </div>
