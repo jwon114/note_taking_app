@@ -7,11 +7,28 @@ export default class InputModal extends Component {
     super(props);
     this.state = {
       input: '',
+      title: '',
     };
   }
 
   validationState() {
 
+  }
+
+  fieldGroup({ id, label, help, ...props }) {
+    return (
+      <FormGroup
+        controlId="formTitleText"
+      >
+        <ControlLabel>{label}</ControlLabel>
+        <FormControl
+          type="text"
+          value={this.state.input}
+          placeholder="Enter Title"
+          onChange={(e) => this.setState({ input: e.target.value })}
+        />
+      </FormGroup>
+    );
   }
 
   render() {
@@ -25,6 +42,18 @@ export default class InputModal extends Component {
           <Modal.Body>
             <form>
               <FormGroup
+                controlId="formTitleText"
+              >
+                <ControlLabel>Title</ControlLabel>
+                <FormControl
+                  type="text"
+                  value={this.state.input}
+                  placeholder="Enter Title"
+                  onChange={(e) => this.setState({ input: e.target.value })}
+                />
+              </FormGroup>
+              <FormGroup
+                controlId="formToDoText"
                 validationState={this.validationState()}
               >
                 <ControlLabel>To Do</ControlLabel>
