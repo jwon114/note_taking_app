@@ -5,7 +5,6 @@ import ToDoList from './ToDoList/ToDoList';
 import Style from '../../style/style.css';
 import ToDo from './ToDo/ToDo';
 import InputModal from './InputModal/InputModal';
-//import { Modal } from 'react-bootstrap';
 
 class App extends Component {
 
@@ -31,7 +30,7 @@ class App extends Component {
         {console.log(this.state)}
         <div>
           <button onClick={() => this.setState({ showModal: true })}>New ToDo</button>
-          <InputModal show={showModal} hide={() => this.closeModal()} />
+          <InputModal show={showModal} hide={() => this.closeModal()} input={(text) => this.setState({ inputValue: text })} />
         </div>
         <div className={Style.container}>
           <div className={Style.toDos}>
