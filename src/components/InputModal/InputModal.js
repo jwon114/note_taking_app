@@ -15,10 +15,11 @@ export default class InputModal extends Component {
 
   }
 
-  fieldGroup({ id, label, help, ...props }) {
+  fieldGroup({ id, validation, label, help, ...props }) {
     return (
       <FormGroup
         controlId={id}
+        validationState={validation}
       >
         <ControlLabel>{label}</ControlLabel>
         <FormControl
@@ -47,19 +48,15 @@ export default class InputModal extends Component {
                 value={this.state.title}
                 onChange={(e) => this.setState({ title: e.target.value })}
               />
-              <FormGroup
-                controlId="formToDoText"
-                validationState={this.validationState()}
-              >
-                <ControlLabel>To Do</ControlLabel>
-                <FormControl
-                  type="text"
-                  value={this.state.input}
-                  placeholder="Enter Text"
-                  onChange={(e) => this.setState({ input: e.target.value })}
-                />
-                <HelpBlock>Max 200 characters</HelpBlock>
-              </FormGroup>
+              <this.fieldGroup
+                id={'formToDoText'}
+                validation={this.validationState()}
+                label={'To Do'}
+                placeholder={'Enter Text'}
+                value={this.state.input}
+                onChange={(e) => this.setState({ input: e.target.value })}
+                help={'Max 200 Characters'}
+              />
             </form>
           </Modal.Body>
           <Modal.Footer>
