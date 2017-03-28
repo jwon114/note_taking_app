@@ -11,6 +11,10 @@ export default class InputModal extends Component {
     };
   }
 
+  closeModal() {
+
+  }
+
   validationState() {
 
   }
