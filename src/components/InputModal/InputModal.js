@@ -12,7 +12,8 @@ export default class InputModal extends Component {
   }
 
   closeModal() {
-
+    this.props.hide();
+    this.setState({ title: '', input: '' });
   }
 
   validationState() {
