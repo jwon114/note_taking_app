@@ -4,11 +4,11 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 const ToDoList = (props) => (
   <div>
     {props.name}
+    <ListGroup>
     {props.list.map((value) => (
-      <ListGroup>
-        <ListGroupItem onClick={() => props.clickToDo(value)}>{value.title}</ListGroupItem>
-      </ListGroup>
+      <ListGroupItem onClick={() => props.clickToDo(value)}>{value.title}</ListGroupItem>
     ))}
+    </ListGroup>
   </div>
 );
 
