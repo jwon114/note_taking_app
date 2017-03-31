@@ -6,21 +6,26 @@ export default class InputModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
       title: '',
+      value: '',
     };
   }
 
   closeModal() {
     this.props.hide();
-    this.setState({ title: '', input: '' });
+    this.setState({ title: '', value: '' });
   }
 
   validationState() {
-    if (this.state.input.length >= 200) {
+    if (this.state.value.length >= 200) {
       return 'error';
     }
     return 'success';
+  }
+
+  submit() {
+    this.props.input(this.state);
+    this.closeModal();
   }
 
   fieldGroup({ id, validation, label, help, ...props }) {
@@ -62,7 +67,7 @@ export default class InputModal extends Component {
                 label={'To Do'}
                 placeholder={'Enter Text'}
                 value={this.state.input}
-                onChange={(e) => this.setState({ input: e.target.value })}
+                onChange={(e) => this.setState({ value: e.target.value })}
                 maxLength={200}
                 help={'Max 200 Characters'}
               />
@@ -70,7 +75,7 @@ export default class InputModal extends Component {
           </Modal.Body>
           <Modal.Footer>
             <button className="btn btn-default" onClick={() => this.closeModal()}>Close</button>
-            <button className="btn btn-default">Submit</button>
+            <button className="btn btn-default" onClick={() => this.submit()}>Submit</button>
           </Modal.Footer>
         </Modal>
       </div>
@@ -79,7 +84,7 @@ export default class InputModal extends Component {
 }
 
 InputModal.propTypes = {
-  show: PropTypes.boolean,
+  show: PropTypes.bool,
   hide: PropTypes.func,
-  value: PropTypes.string,
+  input: PropTypes.func,
 };

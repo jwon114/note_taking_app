@@ -11,7 +11,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: '',
       listToDos: [{ title: 'A', value: 'One' }, { title: 'B', value: 'Two' }, { title: 'C', value: 'Three' }],
       showToDo: '',
       showModal: false,
@@ -30,7 +29,7 @@ class App extends Component {
         {console.log(this.state)}
         <div>
           <button onClick={() => this.setState({ showModal: true })}>New ToDo</button>
-          <InputModal show={showModal} hide={() => this.closeModal()} input={(text) => this.setState({ inputValue: text })} />
+          <InputModal show={showModal} hide={() => this.closeModal()} input={(input) => this.setState({ listToDos: [...listToDos, input] })} />
         </div>
         <div className={Style.container}>
           <div className={Style.toDos}>
