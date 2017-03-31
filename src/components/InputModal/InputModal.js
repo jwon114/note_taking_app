@@ -17,7 +17,10 @@ export default class InputModal extends Component {
   }
 
   validationState() {
-
+    if (this.state.input.length >= 200) {
+      return 'error';
+    }
+    return 'success';
   }
 
   fieldGroup({ id, validation, label, help, ...props }) {
@@ -60,14 +63,14 @@ export default class InputModal extends Component {
                 placeholder={'Enter Text'}
                 value={this.state.input}
                 onChange={(e) => this.setState({ input: e.target.value })}
+                maxLength={200}
                 help={'Max 200 Characters'}
               />
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <button className="btn btn-default" onClick={() => this.props.hide()}>Close</button>
+            <button className="btn btn-default" onClick={() => this.closeModal()}>Close</button>
             <button className="btn btn-default">Submit</button>
-            <button className="btn btn-default" onClick={() => this.setState({ input: '' })}>Clear</button>
           </Modal.Footer>
         </Modal>
       </div>
