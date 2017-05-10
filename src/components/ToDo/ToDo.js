@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const ToDo = (props) => (
   <div>
-    {props.item.title}
-    {props.item.value}
+    <div>
+      {props.item.title}
+      {props.item.value}
+    </div>
+    <div>
+      <button onClick={() => props.deleteToDo()}>Delete</button>
+    </div>
   </div>
 );
+
+ToDo.propTypes = {
+  item: PropTypes.object,
+  deleteToDo: PropTypes.func,
+};
 
 export default ToDo;

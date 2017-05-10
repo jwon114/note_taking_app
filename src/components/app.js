@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import addToDo from '../actions/index';
@@ -21,6 +22,10 @@ class App extends Component {
     this.setState({ showModal: false });
   }
 
+  deleteItem() {
+    this.setState({ listToDos: listToDos.filter((item) => item != toDo) })
+  }
+
   render() {
     const { reduxState, dispatch } = this.props;
     const { listToDos, showToDo, showModal } = this.state;
@@ -36,7 +41,7 @@ class App extends Component {
             <ToDoList name={'First list'} list={listToDos} clickToDo={(toDo) => this.setState({ showToDo: toDo })} />
           </div>
           <div className={Style.listToDos}>
-            {showToDo ? <ToDo item={showToDo} /> : null}
+            {showToDo ? <ToDo item={showToDo} deleteTodo={() => this.deleteItem()} /> : null}
           </div>
         </div>
       </div>
