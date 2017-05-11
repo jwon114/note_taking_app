@@ -23,7 +23,8 @@ class App extends Component {
   }
 
   deleteItem() {
-    this.setState({ listToDos: listToDos.filter((item) => item != toDo) })
+    this.setState({ listToDos: this.state.listToDos.filter((item) => item !== this.state.showToDo), showToDo: '' });
+    console.log(this.state)
   }
 
   render() {
@@ -41,7 +42,7 @@ class App extends Component {
             <ToDoList name={'First list'} list={listToDos} clickToDo={(toDo) => this.setState({ showToDo: toDo })} />
           </div>
           <div className={Style.listToDos}>
-            {showToDo ? <ToDo item={showToDo} deleteTodo={() => this.deleteItem()} /> : null}
+            {showToDo ? <ToDo item={showToDo} deleteToDo={() => this.deleteItem()} /> : null}
           </div>
         </div>
       </div>
