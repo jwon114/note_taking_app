@@ -24,7 +24,6 @@ class App extends Component {
 
   deleteItem() {
     this.setState({ listToDos: this.state.listToDos.filter((item) => item !== this.state.showToDo), showToDo: '' });
-    console.log(this.state)
   }
 
   render() {

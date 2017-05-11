@@ -8,6 +8,7 @@ const ToDo = (props) => (
     </div>
     <div>
       <button onClick={() => props.deleteToDo()}>Delete</button>
+      <button>Edit</button>
     </div>
   </div>
 );
